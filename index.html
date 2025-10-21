@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grading system</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(135deg, #f2fedb, #a49494);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 450px;
+      border: none;
+      border-radius: 16px;
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.12);
+    }
+
+    h3 {
+      color: #aba918;
+      border-top-left-radius: 16px;
+      border-top-right-radius: 16px;
+      text-align: center;
+      font-weight: 600;
+      font-size: 1.4rem;
+      letter-spacing: 0.5px;
+      padding: 1rem;
+    }
+
+    .card-body {
+      padding: 2rem 1.5rem;
+    }
+
+    .form-label {
+      font-weight: bold;
+      color: #495057;
+      font-size: 18px;
+    }
+
+    input[type="number"] {
+      font-size: 18px;
+      border-radius: 8px;
+      border: 1px solid #ced4da;
+    }
+
+    input[type="number"]:focus {
+      border-color: #0d6efd;
+      box-shadow: 0 0 6px rgba(13, 110, 253, 0.3);
+    }
+
+    .btn {
+      border-radius: 8px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+    }
+
+    #checkGrade {
+      font-weight: 600;
+      color: #198754;
+      margin-top: 20px;
+      text-align: center;
+      font-size: 1.1rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+      <h3> LAUTECH GRADING SYSTEM</h3>
+    <div class="card-body">
+      <div class="mb-3">
+        <label for="grade" class="form-label">Input your CGPA</label>
+        <input type="number" id="grade" class="form-control" value="" placeholder="e.g. 4.50">
+      </div>
+      <button class="btn btn-secondary w-100" onclick="gradeScore()">Check Result</button>
+      <p id="checkGrade">Degree shows here</p>
+    </div>
+  </div>
+</body>
+<script>
+  const gradeScore = () => {
+    if (grade.value == "") {
+      checkGrade.innerHTML = "Input a value";
+    } else {
+      if (grade.value >= 4.50 && grade.value <= 5.00) {
+        checkGrade.innerHTML = "First Class Honor"
+      } else if (grade.value >= 3.50 && grade.value <= 4.49) {
+        checkGrade.innerHTML = "Second Class Honors Upper Division"
+      } else if (grade.value >= 2.40 && grade.value <= 3.49) {
+        checkGrade.innerHTML = "Second Class Honors Lower Division"
+      } else if (grade.value >= 1.50 && grade.value <= 2.39) {
+        checkGrade.innerHTML = "Third Class Honors"
+      } else if (grade.value >= 1.00 && grade.value <= 1.49) {
+        checkGrade.innerHTML = "Pass degree"
+      } else if (grade.value < 1.00) {
+        checkGrade.innerHTML = "Fail : Not eligible for degree"
+      } else {
+        checkGrade.innerHTML = "Not a valid score"
+
+      }
+    }
+    // degree class
+
+    // range
+    if (grade.value > 5.00 || grade.value < 0.00) {
+      checkGrade.innerHTML = "Grade must be between 0.00 and 5.00"
+    }
+    // 
+  }
+</script>
+
+</html>
